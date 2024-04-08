@@ -1,0 +1,4 @@
+repository "CaptureTheFlag@Menumiam@cloud"
+  path "/"
+    br "/main"
+    co "/main"

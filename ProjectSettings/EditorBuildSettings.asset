@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 0
+    path: Assets/Unity Assets/Scalable Grid Prototype Materials/Template Scenes/Dark_SampleScene.unity
+    guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: a18515ef34ba64836984b5e9e9fd36a2
+  - enabled: 1
+    path: Assets/Scenes/ArenaChoice.unity
+    guid: af4bc842fcdfd419db6abf93ed83d191
+  - enabled: 1
+    path: Assets/Scenes/ArenaSpawner.unity
+    guid: ed8f31aea60dc44b0a787dcccf684f10
+  - enabled: 1
+    path: Assets/Scenes/ArenaTwo.unity
+    guid: 3db909e9b9d2849f5887dff66b3796a2
+  - enabled: 1
+    path: Assets/Scenes/ArenaThree.unity
+    guid: 559bf0362d69d4f61bfd3baa77f6dc5d
+  - enabled: 1
+    path: Assets/Scenes/ArenaFour.unity
+    guid: f5675ce7eaaa14f8f83bf4d592a2363d
+  - enabled: 1
+    path: Assets/Scenes/ArenaFive.unity
+    guid: 272ae6d1d57d54f64aefb8003543f16e
+  - enabled: 1
+    path: Assets/Scenes/ArenaOne.unity
+    guid: 7374e1941c63c46a7be479a67c8dab3f
+  m_configObjects: {}
