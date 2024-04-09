@@ -47,11 +47,13 @@ public class StatusUpd : MonoBehaviour
         {
             playing = false;
             status = "paused";
+            Time.timeScale = 0;
         }
         else
         {
             playing = true;
             status = "playing";
+            Time.timeScale = 1;
         }
 
 
@@ -75,6 +77,7 @@ public class StatusUpd : MonoBehaviour
 
         if (status == "victoire")
         {
+            
             winPopup.SetActive(true);
             string stmptext = TimespentText(Timer.Instance.currentTime);
             winPopupTime.text = "Temps passé dans la partie : " +stmptext ;
@@ -83,6 +86,7 @@ public class StatusUpd : MonoBehaviour
 
     public void ReturnButton()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene("MainMenu");
     }
     

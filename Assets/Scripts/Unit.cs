@@ -13,10 +13,11 @@ public class Unit : MonoBehaviour
     [SerializeField] private int damageLevel;
     [SerializeField] private int healLevel;
     private int currentHealth;
+    public bool isUnderOrder = false;
    
     void Start()
     {
-        //UnitSelectionManager.Instance.allUnitsList.Add(gameObject);
+        UnitSelectionManager.Instance.allUnitsList.Add(gameObject);
         currentHealth = 100;
 
     }
@@ -60,8 +61,43 @@ public class Unit : MonoBehaviour
     private void OnDestroy()
     {
         //UnitSelectionManager.Instance.allUnitsList.Remove(gameObject);
-        //UnitSelectionManager.Instance.nbtotunitslost += 1;
+        UnitSelectionManager.Instance.nbtotunitslost += 1;
     }
+
+    public void Damage(int damage)
+    {
+        int calc = currentHealth - damage;
+        
+        if (calc <=0)
+        {
+            currentHealth = 0;
+        }
+        else
+        {
+            currentHealth = calc;
+        }
+
+        healthBar.UpdateHealthBar(maxHealth, currentHealth);
+        //print(currentHealth);
+    }
+    
+    public void Heal(int heal)
+    {
+        int calc = currentHealth + heal;
+        
+        if (calc >= maxHealth)
+        {
+            currentHealth = maxHealth;
+        }
+        else
+        {
+            currentHealth = calc;
+        }
+
+        healthBar.UpdateHealthBar(maxHealth, currentHealth);
+        //print(currentHealth);
+    }
+    
 
     
 }

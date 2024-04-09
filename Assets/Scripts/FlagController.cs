@@ -21,9 +21,10 @@ public class FlagController : MonoBehaviour
             if (Input.GetKey(KeyCode.F))
             {
                 this.gameObject.SetActive(false);
+                StatusUpd.Instance.status = "Kingmode";
 
                 GameObject unit = other.gameObject;
-                print("1");
+                //print("1");
                 //goOnUnit = unit.GetComponents<Tag>()
                 //goOnUnit =GameObject.FindGameObjectsWithTag("Flagwunit");
                 //goWcrown = GameObject.FindGameObjectsWithTag("HealthBarCanvasTag");
@@ -36,6 +37,10 @@ public class FlagController : MonoBehaviour
                 goOnUnit = unit.GetComponentsInChildren<Transform>(true);
                 //print("2bis");
                 //print(goOnUnit.Length);
+
+                unit.tag = "King";
+                
+                //UnitMovement.
                 
                 foreach (Transform numy in goOnUnit)
                 {

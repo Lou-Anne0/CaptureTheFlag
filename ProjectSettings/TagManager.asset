@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - Unit
+  - Flagwunit
+  - HealthBarCanvasTag
+  - Enemy
+  - King
   layers:
   - Default
   - TransparentFX
