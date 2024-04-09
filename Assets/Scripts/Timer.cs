@@ -9,7 +9,7 @@ using Debug = System.Diagnostics.Debug;
 
 public class Timer : MonoBehaviour
 {
-    
+    public static Timer Instance { get; set; }
     [SerializeField] private TMP_Text timerText = null;
 
     public float currentTime;
@@ -22,25 +22,37 @@ public class Timer : MonoBehaviour
     private int secondes;
 
     
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
-        
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            Instance = this;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        currentTime += Time.deltaTime;
-
-        if (currentTime >= maxTime * 3600f)
+        if (StatusUpd.Instance.playing)
         {
-            currentTime = maxTime * 3600f;
-            timerText.color = Color.red;
+            currentTime += Time.deltaTime;
+
+            if (currentTime >= maxTime * 3600f)
+            {
+                currentTime = maxTime * 3600f;
+                timerText.color = Color.red;
+                StatusUpd.Instance.status = "défaite";
+                StatusUpd.Instance.EndGame();
+            }
+
+            SetTimerText();
+  
         }
-
-        SetTimerText();
-
+        
     }
 
     private void SetTimerText()

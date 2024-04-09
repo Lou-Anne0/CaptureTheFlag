@@ -6,7 +6,7 @@ using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using Random = System.Random;
 
-
+// 1.534
 public class Gridspawner : MonoBehaviour
 {
     public GameObject[] simpleCases;
@@ -14,6 +14,7 @@ public class Gridspawner : MonoBehaviour
     public int size;
     public float gridSpacingOffset = 4f;
     public Vector3 gridOrigin = Vector3.zero;
+    public GameObject flag;
     
     
     void Start()
@@ -81,7 +82,7 @@ public class Gridspawner : MonoBehaviour
                 {
                     Vector3 spawnPosition = new Vector3((x-1) * gridSpacingOffset, 0, (z-1) * gridSpacingOffset) + gridOrigin;
                     
-                    if ((counter<=2*size) || (counter>=size*(size-2)))
+                    if ((counter<=2*size) || (counter>size*(size-2)))
                     {
                         if (counter <= 2 * size)
                         {
@@ -146,6 +147,9 @@ public class Gridspawner : MonoBehaviour
             Vector3 spawnPosition = new Vector3(i*gridSpacingOffset, 0,  size*gridSpacingOffset) + gridOrigin;
             GameObject clone = Instantiate(specialCases[0], spawnPosition, Quaternion.identity);
         }
+        
+        Vector3 spawnPositionh = new Vector3(gridSpacingOffset*3, 1.534f,  (size/2)*gridSpacingOffset) + gridOrigin;
+        GameObject clonef = Instantiate(flag, spawnPositionh, Quaternion.identity);
     }
 
     public bool IsDivisible(int a, int b)

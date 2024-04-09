@@ -16,7 +16,7 @@ public class Unit : MonoBehaviour
    
     void Start()
     {
-        //UnitSelectionManager.Instance.allUnitsList.Add(gameObject);
+        UnitSelectionManager.Instance.allUnitsList.Add(gameObject);
         currentHealth = 100;
 
     }
@@ -60,6 +60,7 @@ public class Unit : MonoBehaviour
     private void OnDestroy()
     {
         //UnitSelectionManager.Instance.allUnitsList.Remove(gameObject);
+        //UnitSelectionManager.Instance.nbtotunitslost += 1;
     }
 
     

@@ -25,7 +25,8 @@ public class UnitMovement : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        
+        if ((Input.GetMouseButtonDown(0))&&(StatusUpd.Instance.playing))
         {
             //RaycastHit hit;
             //Ray ray = cam.ScreenPointToRay(Input.mousePosition);

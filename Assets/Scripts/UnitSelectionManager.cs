@@ -10,6 +10,7 @@ public class UnitSelectionManager : MonoBehaviour
     
     public List<GameObject> allUnitsList = new List<GameObject>();
     public List<GameObject> unitsSelected = new List<GameObject>();
+    public int nbtotunitslost;
 
     public LayerMask clickable;
 

@@ -1,49 +1,118 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using TMPro;
 
 public class StatusUpd : MonoBehaviour
 {
-    [SerializeField] private GameObject go;
-    // Start is called before the first frame update
+    public static StatusUpd Instance { get; set; }
+
+    public string status = "not playing";
+
+    public bool playing = false;
+
+    [SerializeField] private GameObject defeatPopup;
+    [SerializeField] private GameObject winPopup;
+    [SerializeField] private TMP_Text defeatPopupTime;
+    [SerializeField] private TMP_Text winPopupTime;
+    [SerializeField] private TMP_Text defeatPopupUnits;
+        // victoire défaite pause play 
+
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            Instance = this;
+        }
+    }
     void Start()
     {
-        print("problemo");
+        playing = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        string a = "hjkj";
-    }
-    /*public void Damage(int damageLevel)
-    {
-        int calc = go.currentHealth - damageLevel;
         
-        if (calc <=0)
+    }
+
+    public void PauseGame(bool st)
+    {
+        if (st)
         {
-            currentHealth = 0;
+            playing = false;
+            status = "paused";
         }
         else
         {
-            currentHealth = calc;
+            playing = true;
+            status = "playing";
         }
 
-        healthBar.UpdateHealthBar(maxHealth, currentHealth);
+
     }
     
-    public void Heal(int healLevel)
+    public void QuitButton()
     {
-        int calc = currentHealth + healLevel;
-        
-        if (calc > maxHealth)
+        status = "défaite";
+    }
+    
+    public void EndGame()
+    {
+        playing = false;
+        if ((status == "paused") || (status == "défaite") )
         {
-            currentHealth = maxHealth;
+            defeatPopup.SetActive(true);
+            string stmptext = TimespentText(Timer.Instance.currentTime);
+            defeatPopupTime.text = "Temps passé dans la partie : " +stmptext ;
+            //defeatPopupUnits.text = "Nombre d'unités perdues : " +stmptext ;
+        }
+
+        if (status == "victoire")
+        {
+            winPopup.SetActive(true);
+            string stmptext = TimespentText(Timer.Instance.currentTime);
+            winPopupTime.text = "Temps passé dans la partie : " +stmptext ;
+        }
+    }
+
+    public void ReturnButton()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
+    
+    private static string TimespentText(float currentTime)
+    {
+        int secondes = (int) currentTime % 60;
+        int minutes = (int) currentTime / 60;
+        string stminutes;
+        string stsecondes;
+        
+        if (minutes < 10)
+        {
+            stminutes = "0" + minutes.ToString();
         }
         else
         {
-            currentHealth = calc;
+            stminutes = minutes.ToString();
         }
-        healthBar.UpdateHealthBar(maxHealth, currentHealth);
-    }*/
+        if (secondes < 10)
+        {
+            stsecondes = "0" + secondes.ToString();
+        }
+        else
+        {
+            stsecondes = secondes.ToString();
+        }  
+        
+        string temps = stminutes.ToString() + "m" + stsecondes.ToString()+ "s" ;
+
+        return temps;
+    }
+    
 }
