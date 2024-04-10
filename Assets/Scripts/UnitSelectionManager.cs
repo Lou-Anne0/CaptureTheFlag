@@ -10,10 +10,10 @@ public class UnitSelectionManager : MonoBehaviour
     
     public List<GameObject> allUnitsList = new List<GameObject>();
     public List<GameObject> unitsSelected = new List<GameObject>();
-    public int nbtotunitslost;
+    public int nbtotunitslost = 0;
 
     public LayerMask clickable;
-
+    public AudioSource clickSound;
     private static readonly int _UNITS_LAYER = 1 << 7;
     //public LayerMask ground;
     //public GameObject groundMarker;
@@ -55,12 +55,16 @@ public class UnitSelectionManager : MonoBehaviour
                 print("Collision");
                 if (Input.GetKey(KeyCode.LeftShift))
                 {
+                    print("2");
                     MultiSelect(hitInfo.collider.gameObject);
+                    print("3");
                 }
 
                 else
                 {
+                    print("4");
                     SelectByClicking(hitInfo.collider.gameObject);
+                    print("5");
                 }
                 
                 
@@ -85,11 +89,13 @@ public class UnitSelectionManager : MonoBehaviour
     {
         if (!unitsSelected.Contains((unit)))
         {
+            clickSound.Play();
             unitsSelected.Add(unit);
             EnableUnitMovement(unit,true);
         }
         else
         {
+            clickSound.Play();
             EnableUnitMovement(unit,false);
             unitsSelected.Remove(unit);
         }

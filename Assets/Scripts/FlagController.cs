@@ -12,14 +12,18 @@ public class FlagController : MonoBehaviour
     private GameObject crownHolder;
     private GameObject crown;
     private Transform[] goWcrown;
+    [SerializeField] private GameObject PressText;
 
     private void OnTriggerStay(Collider other)
     {
         //print("Collission detected");
         if (other.CompareTag("Unit")) 
         {
+            PressText.SetActive(true);
+            
             if (Input.GetKey(KeyCode.F))
             {
+                PressText.SetActive(false);
                 this.gameObject.SetActive(false);
                 StatusUpd.Instance.status = "Kingmode";
 

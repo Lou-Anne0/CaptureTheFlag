@@ -22,6 +22,7 @@ public class UnitMovement : MonoBehaviour
     private Vector3 givenDestination;
     private Camera cam;
     public GameObject king;
+    [SerializeField] LayerMask UIlayer;
     
 
     private void Start()
@@ -40,21 +41,27 @@ public class UnitMovement : MonoBehaviour
         {
             //RaycastHit hit;
             //Ray ray = cam.ScreenPointToRay(Input.mousePosition);
-            var ray = cam.ScreenPointToRay(Input.mousePosition);
+            var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            print("1");
 
-            if (Physics.Raycast(ray.origin, ray.direction, out var hitInfo))
+            if (Physics.Raycast(ray.origin, ray.direction, out var hitInfo))//, ~UIlayer))
             {
                 //foreach (var agent in agents)
                 //{
                 //    agent.destination=hitInfo.point; 
                 //}
+                print("2");
                 if ((hitInfo.collider != null) && (hitInfo.collider.CompareTag("Enemy")))
                 {
+                    print("3");
                     UnitfollowEnemy(hitInfo.collider.GameObject());
+                    print("4");
                 }
                 else
                 {
+                    print("5");
                     Unitgo(hitInfo.point);
+                    print("6");
                 }
                 
 

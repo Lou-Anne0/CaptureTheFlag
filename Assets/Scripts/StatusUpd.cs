@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
+using Unity.VisualScripting;
 
 public class StatusUpd : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class StatusUpd : MonoBehaviour
 
     [SerializeField] private GameObject defeatPopup;
     [SerializeField] private GameObject winPopup;
+    [SerializeField] private GameObject quitPopup;
+    [SerializeField] private GameObject pauseButton;
     [SerializeField] private TMP_Text defeatPopupTime;
     [SerializeField] private TMP_Text winPopupTime;
     [SerializeField] private TMP_Text defeatPopupUnits;
@@ -33,6 +36,7 @@ public class StatusUpd : MonoBehaviour
     void Start()
     {
         playing = true;
+        status = "playing";
     }
 
     // Update is called once per frame
@@ -47,12 +51,16 @@ public class StatusUpd : MonoBehaviour
         {
             playing = false;
             status = "paused";
+            pauseButton.SetActive(false);
+            quitPopup.SetActive(true);
             Time.timeScale = 0;
         }
         else
         {
             playing = true;
             status = "playing";
+            pauseButton.SetActive(true);
+            quitPopup.SetActive(false);
             Time.timeScale = 1;
         }
 
@@ -61,7 +69,7 @@ public class StatusUpd : MonoBehaviour
     
     public void QuitButton()
     {
-        status = "défaite";
+        status = "paused";
     }
     
     public void EndGame()
@@ -69,10 +77,13 @@ public class StatusUpd : MonoBehaviour
         playing = false;
         if ((status == "paused") || (status == "défaite") )
         {
+            quitPopup.SetActive(false);
             defeatPopup.SetActive(true);
             string stmptext = TimespentText(Timer.Instance.currentTime);
             defeatPopupTime.text = "Temps passé dans la partie : " +stmptext ;
-            //defeatPopupUnits.text = "Nombre d'unités perdues : " +stmptext ;
+            int unitstot = UnitSelectionManager.Instance.allUnitsList.Count;
+            int unitslost = UnitSelectionManager.Instance.nbtotunitslost;
+            defeatPopupUnits.text = "Nombre d'unités perdues : " + unitslost.ToString() +"/" + unitstot.ToString() ;
         }
 
         if (status == "victoire")

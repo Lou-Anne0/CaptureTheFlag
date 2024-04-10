@@ -4957,6 +4957,57 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 156205421}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &159056520
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 159056522}
+  - component: {fileID: 159056521}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &159056521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 159056520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83c4ccb55ffd04a4eb00390af0df2f3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allUnitsList: []
+  unitsSelected: []
+  nbtotunitslost: 0
+  clickable:
+    serializedVersion: 2
+    m_Bits: 0
+  clickSound: {fileID: 0}
+--- !u!4 &159056522
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 159056520}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &163589426
 GameObject:
   m_ObjectHideFlags: 0
@@ -12076,6 +12127,8 @@ MonoBehaviour:
   playing: 0
   defeatPopup: {fileID: 0}
   winPopup: {fileID: 0}
+  quitPopup: {fileID: 0}
+  pauseButton: {fileID: 0}
   defeatPopupTime: {fileID: 0}
   winPopupTime: {fileID: 0}
   defeatPopupUnits: {fileID: 0}
@@ -58479,6 +58532,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d308d3e74f174a4bb5bf31c60441e28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PressText: {fileID: 0}
 --- !u!4 &1838416447
 Transform:
   m_ObjectHideFlags: 0
@@ -69918,6 +69972,11 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7965821935408862291, guid: 6eb8b83788048460faa14662868eb139,
+        type: 3}
+      propertyPath: UIlayer.m_Bits
+      value: 32
+      objectReference: {fileID: 0}
     - target: {fileID: 8312382190678611751, guid: 6eb8b83788048460faa14662868eb139,
         type: 3}
       propertyPath: m_Name
@@ -70011,3 +70070,4 @@ SceneRoots:
   - {fileID: 2038248897}
   - {fileID: 1452024916}
   - {fileID: 1838416447}
+  - {fileID: 159056522}

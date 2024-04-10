@@ -24,7 +24,24 @@ public class Unit : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.D))     
+        if (Input.GetKeyDown(KeyCode.D)&& CompareTag("Enemy"))     
+        {
+            int calc = currentHealth - damageLevel;
+        
+            if (calc <=0)
+            {
+                currentHealth = 0;
+            }
+            else
+            {
+                currentHealth = calc;
+            }
+
+            healthBar.UpdateHealthBar(maxHealth, currentHealth);
+            //print(currentHealth);
+        }
+        
+        if (Input.GetKeyDown(KeyCode.E)&& CompareTag("Unit"))     
         {
             int calc = currentHealth - damageLevel;
         

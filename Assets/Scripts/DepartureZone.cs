@@ -18,8 +18,8 @@ public class DepartureZone : MonoBehaviour
         {
             StatusUpd.Instance.status = "Victoire";
             StatusUpd.Instance.playing = false;
-            Time.timeScale = 0;
             StatusUpd.Instance.EndGame();
+           //Time.timeScale = 0;
         }
     }
 }    
