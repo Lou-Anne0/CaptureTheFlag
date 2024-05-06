@@ -10,6 +10,7 @@ using UnityEngine.InputSystem;
               // 1.599426
 public class UnitMovement : MonoBehaviour
 {
+    public static UnitMovement Instance { get; set; }
     // Start is called before the first frame update
     //private Camera cam;
     //private NavMeshAgent[] agents;
@@ -89,7 +90,7 @@ public class UnitMovement : MonoBehaviour
 
         if ((StatusUpd.Instance.status == "Kingmode") && !CompareTag("King") && !isUnderOrder )
         {
-            king = GameObject.FindWithTag("King");
+            //king = GameObject.FindWithTag("King");
             UnitfollowKing();
         }
 
@@ -123,6 +124,12 @@ public class UnitMovement : MonoBehaviour
             agent.destination = king.transform.position;
         }
         
+    }
+    
+    public void SetKing(GameObject gKing)
+    {
+        king = gKing;
+
     }
     
     

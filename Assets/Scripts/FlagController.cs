@@ -45,6 +45,8 @@ public class FlagController : MonoBehaviour
                 unit.tag = "King";
                 
                 //UnitMovement.
+
+                //UnitMovement.Instance.SetKing(unit); 
                 
                 foreach (Transform numy in goOnUnit)
                 {

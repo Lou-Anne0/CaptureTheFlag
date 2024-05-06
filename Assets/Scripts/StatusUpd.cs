@@ -51,9 +51,9 @@ public class StatusUpd : MonoBehaviour
         {
             playing = false;
             status = "paused";
-            pauseButton.SetActive(false);
-            quitPopup.SetActive(true);
-            Time.timeScale = 0;
+            //pauseButton.SetActive(false);
+            //quitPopup.SetActive(true);
+            //Time.timeScale = 0;
         }
         else
         {
@@ -90,6 +90,7 @@ public class StatusUpd : MonoBehaviour
         {
             
             winPopup.SetActive(true);
+            pauseButton.SetActive(false);
             string stmptext = TimespentText(Timer.Instance.currentTime);
             winPopupTime.text = "Temps passé dans la partie : " +stmptext ;
         }

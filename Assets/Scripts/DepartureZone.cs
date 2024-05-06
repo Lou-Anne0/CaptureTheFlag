@@ -14,11 +14,16 @@ public class DepartureZone : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         //print("Collission detected");
+        //print("Something has entered");
         if (other.CompareTag("King"))
         {
-            StatusUpd.Instance.status = "Victoire";
+            //print("it's the king ! ");
+            StatusUpd.Instance.status = "victoire";
+            //print("a");
             StatusUpd.Instance.playing = false;
+            //print("b");
             StatusUpd.Instance.EndGame();
+            //print("c");
            //Time.timeScale = 0;
         }
     }
