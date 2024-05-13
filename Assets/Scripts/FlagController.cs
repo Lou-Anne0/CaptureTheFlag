@@ -30,7 +30,7 @@ public class FlagController : MonoBehaviour
                 GameObject unit = other.gameObject;
                 //print("1");
                 //goOnUnit = unit.GetComponents<Tag>()
-                //goOnUnit =GameObject.FindGameObjectsWithTag("Flagwunit");
+                //goOnUnit = GameObject.FindGameObjectsWithTag("Flagwunit");
                 //goWcrown = GameObject.FindGameObjectsWithTag("HealthBarCanvasTag");
 
 

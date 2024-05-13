@@ -95,24 +95,36 @@ public class Gridspawner : MonoBehaviour
                     }
                     else
                     {
-                        if ((IsDivisible(x,2)) && (IsDivisible(z,2)))
+                        Random rndbi = new Random();
+                        int rVar  = rndbi.Next(100);
+
+                        if (rVar < 30)
                         {
-                            GameObject clone = Instantiate(simpleCases[0], spawnPosition, Quaternion.identity);
+                            GameObject clone = Instantiate(simpleCases[4], spawnPosition, Quaternion.identity);
+                        }
+
+                        else
+                        {
+                            if ((IsDivisible(x,2)) && (IsDivisible(z,2)))
+                            {
+                                GameObject clone = Instantiate(simpleCases[0], spawnPosition, Quaternion.identity);
                             
-                        }
-                        if (!(IsDivisible(x,2)) && !(IsDivisible(z,2)))
-                        {
-                            GameObject clone = Instantiate(simpleCases[0], spawnPosition, Quaternion.identity);
-                        }
-                        if (!(IsDivisible(x,2)) && (IsDivisible(z,2)))
-                        {
-                            GameObject clone = Instantiate(simpleCases[1], spawnPosition, Quaternion.identity);
+                            }
+                            if (!(IsDivisible(x,2)) && !(IsDivisible(z,2)))
+                            {
+                                GameObject clone = Instantiate(simpleCases[0], spawnPosition, Quaternion.identity);
+                            }
+                            if (!(IsDivisible(x,2)) && (IsDivisible(z,2)))
+                            {
+                                GameObject clone = Instantiate(simpleCases[1], spawnPosition, Quaternion.identity);
                             
+                            }
+                            if ((IsDivisible(x,2)) && !(IsDivisible(z,2)))
+                            {
+                                GameObject clone = Instantiate(simpleCases[1], spawnPosition, Quaternion.identity);
+                            }
                         }
-                        if ((IsDivisible(x,2)) && !(IsDivisible(z,2)))
-                        {
-                            GameObject clone = Instantiate(simpleCases[1], spawnPosition, Quaternion.identity);
-                        }
+                        
                     }
                         
 
