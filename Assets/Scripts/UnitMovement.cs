@@ -116,7 +116,7 @@ public class UnitMovement : MonoBehaviour
         agent.destination = cible.transform.position;
         float distEnemy = Vector3.Distance(this.transform.position, cible.transform.position);
 
-        while (distEnemy <= 1.5)
+        while (distEnemy >= 1.5)
         {
             distEnemy = Vector3.Distance(this.transform.position, cible.transform.position);
         }
@@ -132,8 +132,9 @@ public class UnitMovement : MonoBehaviour
             }
         }
         */
-        enemyDead = true;
+        //enemyDead = true;
         isUnderOrder = false;
+        locationReached = true;
         
         
     }

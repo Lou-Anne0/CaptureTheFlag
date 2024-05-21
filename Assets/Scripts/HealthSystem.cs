@@ -32,14 +32,14 @@ public class HealthSystem : MonoBehaviour
     {
         float distPatrolLeft = Vector3.Distance(this.transform.position, destPatrolLeft);
         //print(distDestination);
-        if (distPatrolLeft <= 1.1f)
+        if (distPatrolLeft <= 1.5f)
         {
             enemyAgent.destination = destPatrolRight;
         }
         
         float distPatrolRight = Vector3.Distance(this.transform.position, destPatrolRight);
         //print(distDestination);
-        if (distPatrolRight <= 1.1f)
+        if (distPatrolRight <= 1.5f)
         {
             enemyAgent.destination = destPatrolLeft;
         }
