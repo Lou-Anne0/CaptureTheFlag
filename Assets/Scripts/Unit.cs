@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -12,7 +13,7 @@ public class Unit : MonoBehaviour
     [SerializeField] private HealthBar healthBar;
     [SerializeField] private int damageLevel;
     [SerializeField] private int healLevel;
-    private int currentHealth;
+    public int currentHealth;
     public bool isUnderOrder = false;
    
     void Start()
@@ -72,6 +73,23 @@ public class Unit : MonoBehaviour
             }
             healthBar.UpdateHealthBar(maxHealth, currentHealth);
             //print(currentHealth);
+        }
+        
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if ((this.CompareTag("Unit"))&&(other.CompareTag("Enemy"))  )
+        {
+            other.GetComponent<Unit>().Damage(damageLevel);
+        }
+        if ((this.CompareTag("Enemy"))&&(other.CompareTag("Unit"))  )
+        {
+            other.GetComponent<Unit>().Damage(damageLevel/2);
+        }
+        if ((this.CompareTag("Unit"))&&(other.CompareTag("Unit"))  )
+        {
+            other.GetComponent<Unit>().Heal(healLevel);
         }
     }
 

@@ -1,9 +1,49 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
-public class HealthSystem
+using UnityEngine.PlayerLoop;
+using UnityEngine.InputSystem;
+public class HealthSystem : MonoBehaviour
 {
+    //public static HealthSystem Instance { get; set; }
+    private NavMeshAgent enemyAgent;
+    private Vector3 destPatrolLeft;
+    private Vector3  destPatrolRight;
+    
+
+    //public Transform DestPatrol = new Transform();
+    
+
+    private void Start()
+    {
+        enemyAgent = GetComponent<NavMeshAgent>();
+        destPatrolLeft = this.transform.position;
+        destPatrolLeft.z = 234;
+        destPatrolRight= this.transform.position;
+        destPatrolRight.z = 156;
+        enemyAgent.destination = destPatrolLeft;
+    }
+    //destOne =
+    private void Update()
+    {
+        float distPatrolLeft = Vector3.Distance(this.transform.position, destPatrolLeft);
+        //print(distDestination);
+        if (distPatrolLeft <= 1.1f)
+        {
+            enemyAgent.destination = destPatrolRight;
+        }
+        
+        float distPatrolRight = Vector3.Distance(this.transform.position, destPatrolRight);
+        //print(distDestination);
+        if (distPatrolRight <= 1.1f)
+        {
+            enemyAgent.destination = destPatrolLeft;
+        }
+    }
     /*
     public void Damage(Unit cible, int damage)
     {

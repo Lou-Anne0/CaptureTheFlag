@@ -49,10 +49,11 @@ public class UnitSelectionManager : MonoBehaviour
             //print(Physics.Raycast(ray, out hit, Mathf.Infinity, clickable));                                                               
             //if (Physics.Raycast(ray, out hit, Mathf.Infinity, clickable))
             //print(Physics.Raycast(ray, out hit, Mathf.Infinity, clickable)); 
+            //Lady featherington
             Debug.DrawRay(ray.origin,ray.direction*1000,Color.red);
             if (Physics.Raycast(ray.origin, ray.direction*1000,out var hitInfo,Mathf.Infinity,clickable)) //, _UNITS_LAYER))
             {
-                print("Collision");
+                //print("Collision");
                 if (Input.GetKey(KeyCode.LeftShift))
                 {
                     print("2");
@@ -62,9 +63,9 @@ public class UnitSelectionManager : MonoBehaviour
 
                 else
                 {
-                    print("4");
+                    //print("4");
                     SelectByClicking(hitInfo.collider.gameObject);
-                    print("5");
+                    //print("5");
                 }
                 
                 
@@ -76,8 +77,10 @@ public class UnitSelectionManager : MonoBehaviour
             }
             else
             {
+                print("else");
                 if(!Input.GetKey(KeyCode.LeftShift))
                 {
+                    print("coke");
                     DeselectAll();
                 } 
             }

@@ -60,9 +60,9 @@ public class UnitMovement : MonoBehaviour
                 }
                 else
                 {
-                    print("5");
+                    //print("5");
                     Unitgo(hitInfo.point);
-                    print("6");
+                    //print("6");
                 }
                 
 
@@ -73,9 +73,13 @@ public class UnitMovement : MonoBehaviour
         {
             if (!locationReached)
             {
+                //print("oups");
                 float distDestination = Vector3.Distance(this.transform.position, givenDestination);
-                if (distDestination < 1f)
+                //print(distDestination);
+                if (distDestination <= 1.1f)
+                //if (agent.remainingDistance <= 2f)
                 {
+                    print("oupsiiii");
                     isUnderOrder = false;
                     locationReached = true;
                 }
@@ -106,12 +110,31 @@ public class UnitMovement : MonoBehaviour
 
     private void UnitfollowEnemy(GameObject cible)
     {
+        locationReached = false;
         enemyDead = false;
         isUnderOrder = true;
-        while (StatusUpd.Instance.playing && (StatusUpd.Instance.status != "Kingmode") && (cible is not null))
+        agent.destination = cible.transform.position;
+        float distEnemy = Vector3.Distance(this.transform.position, cible.transform.position);
+
+        while (distEnemy <= 1.5)
         {
-            agent.destination = cible.transform.position;
+            distEnemy = Vector3.Distance(this.transform.position, cible.transform.position);
         }
+        /*while (StatusUpd.Instance.playing && (StatusUpd.Instance.status != "Kingmode") && (cible is not null))
+        {
+            //if 
+            
+            float distDestination = Vector3.Distance(this.transform.position, cible.transform.position);
+            //print(distDestination);
+            if (distDestination >= 1.5f)
+            {
+                agent.destination = cible.transform.position;
+            }
+        }
+        */
+        enemyDead = true;
+        isUnderOrder = false;
+        
         
     }
     
