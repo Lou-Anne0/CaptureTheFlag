@@ -67358,7 +67358,7 @@ PrefabInstance:
     - target: {fileID: 7965821935408862291, guid: 6eb8b83788048460faa14662868eb139,
         type: 3}
       propertyPath: UIlayer.m_Bits
-      value: 32
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8312382190678611751, guid: 6eb8b83788048460faa14662868eb139,
         type: 3}

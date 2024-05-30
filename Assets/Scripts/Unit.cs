@@ -13,7 +13,8 @@ public class Unit : MonoBehaviour
     [SerializeField] private HealthBar healthBar;
     [SerializeField] private int damageLevel;
     [SerializeField] private int healLevel;
-    public int currentHealth;
+    [SerializeField] private int coolDownTime;
+    [SerializeField] private int defenseLevel;public int currentHealth;
     public bool isUnderOrder = false;
    
     void Start()

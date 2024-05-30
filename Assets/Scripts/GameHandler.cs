@@ -28,7 +28,10 @@ public class GameHandler : MonoBehaviour
         // Check if the left mouse button is released
         if (Input.GetMouseButtonUp(0))
         {
-            // End the selection process
+            // End the selection processhhhhhhhhhhhkhkuuuh uiiuygygiiè!gihiu but u suckand i hate you just as much as i hate myself like really please just shoot me and talke my head on a spkike iijzoVH//
+            // if you so please 
+            // bang bang bang 
+            // wo shi faguo ren wo bu hen shuo wan yu this is so wild really i just like to play but ohjjnjjn
             isSelecting = false;
 
             // Select units within the selection rectangle

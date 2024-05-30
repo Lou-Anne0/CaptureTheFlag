@@ -22,7 +22,7 @@ public class HealthSystem : MonoBehaviour
     {
         enemyAgent = GetComponent<NavMeshAgent>();
         destPatrolLeft = this.transform.position;
-        destPatrolLeft.z = 234;
+        destPatrolLeft.z = 232;
         destPatrolRight= this.transform.position;
         destPatrolRight.z = 156;
         enemyAgent.destination = destPatrolLeft;
@@ -32,14 +32,17 @@ public class HealthSystem : MonoBehaviour
     {
         float distPatrolLeft = Vector3.Distance(this.transform.position, destPatrolLeft);
         //print(distDestination);
-        if (distPatrolLeft <= 1.5f)
+        print(distPatrolLeft);
+        
+        if (distPatrolLeft <= 2f)
         {
             enemyAgent.destination = destPatrolRight;
         }
         
         float distPatrolRight = Vector3.Distance(this.transform.position, destPatrolRight);
+        print(distPatrolRight);
         //print(distDestination);
-        if (distPatrolRight <= 1.5f)
+        if (distPatrolRight <= 2f)
         {
             enemyAgent.destination = destPatrolLeft;
         }
